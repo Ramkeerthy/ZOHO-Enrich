@@ -1,3 +1,4 @@
+// This code only works for 3 combinations alone, I am coming up with new logic to handle large numbers.
 #include <stdio.h>
 int main()
 {
