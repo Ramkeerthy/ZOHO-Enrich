@@ -19,16 +19,16 @@ int main()
 	    //Initializing the array element to avoid printing of garbage value
 	
     	for(i=0;i<n;i++)
-	    {
-	       for(j=0;j<n;j++)
-	       {
-	          *(a+(i*n)+j)=0;
-	       }
+		{
+			 for(j=0;j<n;j++)
+			 {
+	    		*(a+(i*n)+j)=0;
+			 }
     	}
 	
     	//Initial position of the magic sqr
 	
-	    i = n/2;
+		i = n/2;
     	j = n-1;
 	
     	//Looping the routine till n*n iterations
@@ -47,11 +47,11 @@ int main()
 	    	{
 	    		if(j==n)
 	    		{
-	    			j=j%n;
+	    		    j=j%n;
 	    		}
 	    		if(i<0)
 	    		{
-	    			i=(i+n)%n;
+	    	        i=(i+n)%n;
 	    		}
 	    	}
 	    	if(*(a+(i*n)+j)!=0)
