@@ -1,71 +1,82 @@
-/* Magic square...
-   this program prints the magic square of order 5.
-   I tried to use dynamic memory allocation and its throwing me error message, i am trying to debug it
+/*  Magic square...
+    I have used dynamic memory allocation to ensure that my code is generic.
+    This magic square code only works for odd orders only.
+    
+    INPUT range: 3-10^5
+    OUTPUT: Prints the Magic square of given order.
 */
 #include<stdio.h>
 #include<stdlib.h>
 int main()
 {
-	int n=5,a[5][5],num=1,i,j;
-
-	//Initializing the array element to avoid printing of garbage value
-	
-	for(i=0;i<n;i++)
+	int n,num=1,i,j;
+	int *a;
+	printf("\nEnter the order of magic square: ");
+	scanf("%d",&n);
+	if(n%2!=0)
 	{
-	   for(j=0;j<n;j++)
-	   {
-	      a[i][j]=0;
-	   }
-	}
+	    a = (int *) malloc(n*n*(sizeof(int)));
+	    //Initializing the array element to avoid printing of garbage value
 	
-	//Initial position of the magic sqr
+    	for(i=0;i<n;i++)
+	    {
+	       for(j=0;j<n;j++)
+	       {
+	          *(a+(i*n)+j)=0;
+	       }
+    	}
 	
-	i = n/2;
-	j = n-1;
+    	//Initial position of the magic sqr
 	
-	//Looping the routine till n*n iterations
+	    i = n/2;
+    	j = n-1;
 	
-	while(num<=(n*n))
-	{
+    	//Looping the routine till n*n iterations
+	
+	    while(num<=(n*n))
+	    {
 		
-		//If index of row is -1 and column is n
+	    	//If index of row is -1 and column is n
 		
-		if(i==-1 && j==n)
-		{
-			j=j-2;
-			i=0;
-		}
-		else
-		{
-			if(j==n)
-			{
-				j=j%n;
-			}
-			if(i<0)
-			{
-				i=(i+n)%n;
-			}
-		}
-		if(a[i][j]!=0)
-		{
-			j=j-2;
-			i=i+1;
-			continue;
-		}
-		else
-		{
-			a[i][j]=num++;
-		}
-		i=i-1;
-		j=j+1;
+	    	if(i==-1 && j==n)
+	    	{
+	    		j=j-2;
+	    		i=0;
+	    	}
+	    	else
+	    	{
+	    		if(j==n)
+	    		{
+	    			j=j%n;
+	    		}
+	    		if(i<0)
+	    		{
+	    			i=(i+n)%n;
+	    		}
+	    	}
+	    	if(*(a+(i*n)+j)!=0)
+	    	{
+	    		j=j-2;
+	    		i=i+1;
+	    		continue;
+	    	}
+	    	else
+	    	{
+	    		*(a+(i*n)+j)=num++;
+	    	}
+	    	i=i-1;
+	    	j=j+1;
+    	}
+      	for(i=0;i<n;i++)
+        {
+            for(j=0;j<n;j++)
+      	    {
+        	   printf("%d\t",*(a+(i*n)+j));
+      	    }
+        	printf("\n");
+        }
 	}
-	for(i=0;i<n;i++)
-    {
-        for(j=0;j<n;j++)
-      	{
-    	   printf("%d\t",a[i][j]);
-      	}
-      	printf("\n");
-    }
-	return 0;
+	else
+	    printf("\n Magic Square workes for only odd degree.");
+    return 0;
 }
