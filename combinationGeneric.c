@@ -3,7 +3,7 @@
 #include<math.h>
 int main()
 {
-    int n,i,j,comb;
+    int n,i,j,comb,m,p;
     int *a,*elements;
     printf("\n Enter the max numbers for the combination: ");
     scanf("%d",&n);
@@ -14,19 +14,14 @@ int main()
     {
         scanf("%d",&elements[i]);
     }
-    for(comb=1;comb<(int)pow(2,n);comb++)
+    for(comb=1;comb<pow(2,n);comb++)
     {
+        m=comb;
         i=0;
-        p=comb;
-        while(comb>1)
+        while(m>0)
         {
-            a[i]=comb%2;
-            i++;
-            comb/=2;
-        }
-        if(p%2!=1)
-        {
-            a[i]=1;
+            a[i]=m%2;
+            m/=2;
             i++;
         }
         while(i<n)
@@ -34,17 +29,14 @@ int main()
             a[i]=0;
             i++;
         }
-		for(i=0;i<n;i++)
-		printf("%d",a[i]);
-        /*for(i=0;i<n;i++)
+        j=0;
+        while(j<n)
         {
-            if(*(a+i)!=0)
-            {
-                printf("%d",elements[i]);
-            }
-        }*/
+            if(a[j]==1)
+            printf("%d",elements[j]);
+            j++;
+        }
         printf("\n");
     }
     return 0;
 }
-
