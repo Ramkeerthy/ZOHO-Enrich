@@ -2,7 +2,7 @@
 #include<unistd.h>
 int main()
 {
-	char info[] = {"HAPPY PONGAL"};
+	char info[] = "HAPPY PONGAL";
 	int i=0;
 	while(info[i]!="\0")
 	{
