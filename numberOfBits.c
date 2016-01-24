@@ -2,7 +2,7 @@
 int main()
 {
 	int number,bits=0,number1;
-	printf("\n Enter a numberer: ");
+	printf("\n Enter a number: ");
 	scanf("%d",&number);
 	number1=number;
 	while(number>0)
