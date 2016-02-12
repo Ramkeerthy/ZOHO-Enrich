@@ -60,6 +60,8 @@ int min(int a, int b)
 int main()
 {
 	char str[50];
+	printf("Enter the string: ");
+	gets(str);
 	printf("The input string is %s \n", str);
 	int len = longestUniqueSubsttr(str);
 	printf("The length of the longest non-repeating "
